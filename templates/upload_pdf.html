@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload PDF</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/upload_pdf.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Upload PDF to {{ class_name }}</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <label for="pdf_file">Select PDF:</label>
+            <input type="file" name="pdf_file" accept=".pdf" required><br>
+            <button type="submit">Upload</button>
+        </form>
+        <a class="back-link" href="{{ url_for('view_pdfs', class_name=class_name) }}">Back to PDFs</a>
+    </div>
+</body>
+</html>

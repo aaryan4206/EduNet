@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Message</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/send_message.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Send Message to {{ class_name }}</h2>
+        <form method="POST">
+            <label for="message">Message:</label>
+            <textarea name="message" required></textarea><br>
+            <button type="submit">Send</button>
+        </form>
+        <a class="back-link" href="{{ url_for('home') }}">Back to Home</a>
+    </div>
+</body>
+</html>

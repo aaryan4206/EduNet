@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Messages</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/view_messages.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Messages for {{ class_name }}</h2>
+        <ul>
+            {% for message in messages %}
+                <li>{{ message[0] }}: {{ message[1] }} (Created on {{ message[2].day }}/{{ message[2].month }}/{{ message[2].year }} at {{ message[2].hour }}:{{ message[2].minute }}:{{ message[2].second }})</li>
+            {% endfor %}
+        </ul>
+        <a class="back-link" href="{{ url_for('home') }}">Back to Home</a>
+    </div>
+</body>
+</html>

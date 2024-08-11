@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View PDFs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/view_pdfs.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>PDFs for {{ class_name }}</h2>
+        <ul>
+            {% for pdf in pdfs %}
+                <li>
+                    <a href="{{ url_for('download_pdf', class_name=class_name, pdf_id=pdf[0]) }}">{{ pdf[1] }}</a>
+                    (Uploaded on {{ pdf[2].day }}/{{ pdf[2].month }}/{{ pdf[2].year }} at {{ pdf[2].hour }}:{{ pdf[2].minute }}:{{ pdf[2].second }})
+                </li>
+            {% endfor %}
+        </ul>
+        {% if session['role'] == 'TEACHER' %}
+            <a class="upload-link" href="{{ url_for('upload_pdf', class_name=class_name) }}">Upload PDF</a>
+        {% endif %}
+        <a class="back-link" href="{{ url_for('home') }}">Back to Home</a>
+    </div>
+</body>
+</html>
